@@ -1,0 +1,29 @@
+insert into countries (name, code)
+select distinct Entity, Code from infectious_cases;
+
+insert into cases (
+country_id, 
+year, 
+polio_cases, 
+guinea_worm_cases,
+cholera_cases,
+number_yaws, 
+number_rabies, 
+number_malaria, 
+number_hiv, 
+number_tuberculosis, 
+number_smallpox 
+)
+select 
+    (select country_id from countries where name = inf.Entity and code = inf.Code),
+    inf.Year,
+    inf.polio_cases,
+    inf.cases_guinea_worm,
+    inf.Number_cholera_cases,
+    inf.Number_yaws,
+    inf.Number_rabies,
+    inf.Number_malaria,
+    inf.Number_hiv,
+    inf.Number_tuberculosis,
+    inf.Number_smallpox
+FROM infectious_cases inf;

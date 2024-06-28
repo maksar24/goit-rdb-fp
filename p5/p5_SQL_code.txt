@@ -1,0 +1,10 @@
+delimiter // 
+create function CalculateYearsDifference(input_year year)
+returns int
+deterministic
+begin
+    declare result int;
+    set result = timestampdiff(YEAR, makedate(input_year, 1), curdate());
+    return result;
+end //
+delimiter ;

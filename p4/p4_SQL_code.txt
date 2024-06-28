@@ -1,0 +1,9 @@
+select 
+case_id,
+country_id, 
+year,
+makedate(year, 1) as full_date,
+curdate() as present_date,
+timestampdiff(YEAR, makedate(year, 1), curdate()) as year_difference
+from 
+cases;

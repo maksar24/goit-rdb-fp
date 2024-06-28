@@ -1,0 +1,21 @@
+create table countries (
+country_id int auto_increment primary key,
+name varchar(50),
+code varchar(5)
+);
+
+create table cases (
+case_id int auto_increment primary key,
+country_id int,
+year year,
+polio_cases int,
+guinea_worm_cases int,
+cholera_cases varchar(25),
+number_yaws varchar(25),
+number_rabies varchar(25),
+number_malaria varchar(25),
+number_hiv varchar(25),
+number_tuberculosis varchar(25),
+number_smallpox varchar(25),
+foreign key (country_id) references countries(country_id)
+);

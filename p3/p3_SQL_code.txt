@@ -1,0 +1,15 @@
+select 
+country_id, 
+avg(number_rabies) as avg_number_rabies, 
+min(number_rabies) as min_number_rabies, 
+max(number_rabies) as max_number_rabies, 
+sum(number_rabies) as sum_number_rabies
+from 
+cases
+where 
+number_rabies != ''
+group by 
+country_id
+order by 
+avg_number_rabies desc
+limit 10;
